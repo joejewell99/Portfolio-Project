@@ -4,13 +4,17 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(0, 0, 0, 0.87);
   background-color: #242424;
 }
 
@@ -37,8 +41,17 @@ body {
 
 .about {
   padding: 4rem 2rem;
-  background: white;
+  background: rgb(255, 255, 255);
   color: #333;
+  border-top: 1px solid rgba(102, 126, 234, 0.12);
+}
+
+.portfolio {
+  border-top: 1px solid rgba(102, 126, 234, 0.12);
+}
+
+.contact {
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .about-content {
@@ -61,9 +74,10 @@ body {
 }
 
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: flex-start;
 }
 
 .skills-grid span {
@@ -73,6 +87,7 @@ body {
   border-radius: 4px;
   text-align: center;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .footer {
@@ -95,6 +110,29 @@ body {
   .about {
     padding: 2rem 1rem;
   }
+}
+
+.about .section-header,
+.portfolio .section-header,
+.contact .section-header {
+  position: relative;
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.8rem;
+}
+
+.about .section-header::after,
+.portfolio .section-header::after,
+.contact .section-header::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(102, 126, 234, 1), rgba(118, 75, 162, 1));
+  opacity: 0.85;
 }
 
 @media (prefers-color-scheme: light) {
