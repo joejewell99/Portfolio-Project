@@ -1,0 +1,140 @@
+.contact {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.contact .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact .section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.contact .section-header h2 {
+  font-size: 2.5rem;
+  color: white;
+  margin: 0 0 0.5rem 0;
+}
+
+.contact .section-header p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.contact-content {
+  text-align: center;
+}
+
+.contact-info {
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  opacity: 0.95;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.8rem;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+.contact-link:hover {
+  background: white;
+  color: #667eea;
+  border-color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.contact-link:active {
+  transform: translateY(-1px);
+}
+
+.contact-link .icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.contact-link.linkedin:hover .icon {
+  color: #0a66c2;
+}
+
+.contact-link.github:hover .icon {
+  color: #333;
+}
+
+.contact-link.email:hover .icon {
+  color: #ea4335;
+}
+
+.contact-link.phone:hover .icon {
+  color: #34a853;
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 4rem 1rem;
+  }
+
+  .contact .section-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .contact .section-header p {
+    font-size: 1rem;
+  }
+
+  .contact-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-link {
+    width: 100%;
+    justify-content: center;
+    padding: 0.9rem 1.5rem;
+  }
+
+  .contact-info {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-link span {
+    display: none;
+  }
+
+  .contact-link {
+    padding: 0.8rem 1rem;
+  }
+
+  .contact-links {
+    gap: 0.8rem;
+  }
+}

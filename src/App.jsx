@@ -1,13 +1,14 @@
 import Header from './components/Header'
+import Hero from './components/Hero'
 import Portfolio from './components/Portfolio'
+import Contact from './components/Contact'
 import './App.css'
 
 function App() {
   return (
     <>
       <Header />
-
-      <Portfolio />
+      <Hero />
 
       <section id="about" className="about">
         <div className="container">
@@ -24,20 +25,24 @@ function App() {
               <h3>Skills</h3>
               <div className="skills-grid">
                 <span>React</span>
-                <span>JavaScript</span>
-                <span>Node.js</span>
-                <span>Python</span>
-                <span>CSS/HTML</span>
-                <span>MongoDB</span>
+                <span>Spring Boot</span>
                 <span>PostgreSQL</span>
                 <span>Git</span>
+                <span>Haskell</span>
+                <span>Python</span>
+                <span>CSS/HTML</span>
+                <span>Java</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <footer id="contact" className="footer">
+      <Portfolio />
+
+      <Contact />
+
+      <footer className="footer">
         <div className="container">
           <p>&copy; 2024 Joe's Portfolio. All rights reserved.</p>
         </div>
