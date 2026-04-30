@@ -4,6 +4,11 @@ import './Header.css'
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
 
+  const handleHomeClick = (event) => {
+    event.preventDefault()
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 12)
@@ -18,10 +23,10 @@ function Header() {
   return (
     <header className={`header${isScrolled ? ' header-scrolled' : ''}`}>
       <div className="container">
-        <h1 className="logo"><a href="#home" className="logo-link">Joe's Portfolio</a></h1>
+        <h1 className="logo"><a href="#home" onClick={handleHomeClick} className="logo-link">Joe's Portfolio</a></h1>
         <nav className="nav">
           <ul>
-            <li><a href="#home">Home</a></li>
+            <li><a href="#home" onClick={handleHomeClick}>Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="/SoftwareEngResume.pdf" target="_blank" rel="noopener noreferrer">CV</a></li>
