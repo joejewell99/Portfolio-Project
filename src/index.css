@@ -7,7 +7,7 @@
   letter-spacing: 0.5px;
   color-scheme: light dark;
   color: #333;
-  background: #ffffff;
+  background: #050b22;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -17,7 +17,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: white;
+  background: #050b22;
 }
 
 #root {
@@ -26,6 +26,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: #050b22;
 }
 
 h1,
