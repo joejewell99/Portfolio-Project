@@ -5,27 +5,33 @@ function Portfolio() {
   const projects = [
     {
       title: 'Portfolio Website',
-      description: 'A modern portfolio website built with Vite and React showcasing projects and skills with a responsive design.',
+      description: 'A responsive personal portfolio built with Vite and React to present my projects, skills, and contact details.',
       technologies: ['React', 'Vite', 'CSS', 'JavaScript'],
-      link: '#'
+      link: 'https://github.com/joejewell99/Portfolio-Project'
     },
     {
-      title: 'Project Management App',
-      description: 'A full-stack project management application with task tracking, user authentication, and real-time updates.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-      link: '#'
+      title: 'Ad Auction Dashboard',
+      description: 'A JavaFX analytics dashboard that processes ad auction CSV data into metrics and graphs for data analysis.',
+      technologies: ['Java', 'JavaFX', 'Apache Maven', 'CSV Processing'],
+      link: 'https://github.com/joejewell99/Ad-Auction-Dashboard'
     },
     {
-      title: 'E-Commerce Platform',
-      description: 'An e-commerce platform featuring product catalog, shopping cart, payment integration, and order management.',
-      technologies: ['React', 'Python', 'PostgreSQL', 'Stripe'],
-      link: '#'
+      title: 'TCP Network Storage System',
+      description: 'A coursework project exploring networked storage using TCP connections, with a Java backend and browser-based interface.',
+      technologies: ['Java', 'TCP', 'HTML', 'JavaScript', 'CSS'],
+      link: 'https://github.com/joejewell99/TCPNetworkStorageSystem'
     },
     {
-      title: 'Chat Application',
-      description: 'A real-time chat application with user authentication, message history, and typing indicators.',
-      technologies: ['Socket.io', 'React', 'Node.js', 'Firebase'],
-      link: '#'
+      title: 'AI Daily Planner',
+      description: 'A Python daily planner that uses AI scheduling logic to help organise tasks from a to-do list into a practical day plan.',
+      technologies: ['Python', 'AI Scheduling', 'Data Handling'],
+      link: 'https://github.com/joejewell99/Ai-Daily-Planner'
+    },
+    {
+      title: 'JavaFX Tetrecs Game',
+      description: 'A JavaFX Tetrecs game inspired by Tetris, built for a university project with custom game logic and styling.',
+      technologies: ['Java', 'JavaFX', 'CSS', 'Game Logic'],
+      link: 'https://github.com/joejewell99/JavaFX-tetrecs-game'
     }
   ]
 
