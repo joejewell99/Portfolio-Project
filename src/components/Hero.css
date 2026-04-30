@@ -64,6 +64,11 @@
   50% { background-position: 100% center; }
 }
 
+@keyframes reactSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 .hero-graphic {
   position: absolute;
   inset: 0;
@@ -87,22 +92,31 @@
   width: 100%;
   max-width: 1200px;
   padding: 0 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 4.75rem;
 }
 
 .hero-copy {
-  max-width: 620px;
+  max-width: 720px;
 }
 
 .hero-title {
+  font-family: 'Segoe UI Variable Display', 'Segoe UI', Inter, system-ui, sans-serif;
   color: #f8fbff;
   font-size: 4rem;
-  font-weight: 800;
+  font-weight: 750;
   margin: 0 0 0.5rem 0;
-  line-height: 1.1;
+  line-height: 1.05;
   letter-spacing: 0;
   text-shadow: 0 12px 38px rgba(0, 0, 0, 0.32);
   animation: slideUp 0.8s ease-out;
+}
+
+.hero-title-line {
+  display: block;
+  color: #d8e7ef;
+  font-size: 0.72em;
+  font-weight: 650;
+  margin-top: 0.35rem;
 }
 
 .highlight {
@@ -118,12 +132,39 @@
 
 .hero-subtitle {
   color: #8cecff;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.55rem;
   font-size: 1.8rem;
   font-weight: 600;
   margin: 0.5rem 0 1.5rem 0;
   opacity: 1;
   text-shadow: 0 0 22px rgba(0, 200, 255, 0.18);
   animation: slideUp 0.8s ease-out 0.2s both;
+  white-space: nowrap;
+}
+
+.react-mark {
+  width: 1.65rem;
+  height: 1.65rem;
+  filter: drop-shadow(0 0 10px rgba(97, 218, 251, 0.45));
+  animation: reactSpin 12s linear infinite;
+}
+
+.spring-mark {
+  width: 1.55rem;
+  height: 1.55rem;
+  flex: 0 0 auto;
+  fill: #6db33f;
+  filter: drop-shadow(0 0 10px rgba(109, 179, 63, 0.34));
+}
+
+.hero-stack {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
 }
 
 .hero-description {
@@ -229,7 +270,7 @@
 
 .cta-button {
   display: inline-block;
-  padding: 1rem 2.5rem;
+  padding: 0.76rem 1.8rem;
   background: rgba(140, 236, 255, 0.14);
   color: #f8fbff;
   text-decoration: none;
@@ -289,7 +330,7 @@
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
 
   .hero-visual {
@@ -309,6 +350,7 @@
 
   .hero-subtitle {
     font-size: 1.3rem;
+    white-space: normal;
   }
 
   .hero-description {
@@ -317,7 +359,7 @@
   }
 
   .cta-button {
-    padding: 0.9rem 2rem;
+    padding: 0.74rem 1.55rem;
     font-size: 1rem;
   }
 

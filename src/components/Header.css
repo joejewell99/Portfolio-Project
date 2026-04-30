@@ -1,11 +1,19 @@
 .header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: rgba(10, 15, 44, 0.96);
   color: white;
   padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid transparent;
+  box-shadow: none;
+  backdrop-filter: blur(14px);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.header-scrolled {
+  border-bottom-color: rgba(140, 236, 255, 0.18);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
 }
 
 .header .container {
@@ -19,18 +27,20 @@
 
 .logo {
   font-size: 1.8rem;
-  font-weight: bold;
+  font-weight: 800;
   margin: 0;
+  letter-spacing: 0;
 }
 
 .logo-link {
-  color: white;
+  color: #f8fbff;
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .logo-link:hover {
-  opacity: 0.8;
+  color: #8cecff;
+  text-shadow: 0 0 18px rgba(140, 236, 255, 0.28);
 }
 
 .nav ul {
@@ -42,14 +52,36 @@
 }
 
 .nav a {
-  color: white;
+  position: relative;
+  color: #d8e7ef;
   text-decoration: none;
   font-weight: 500;
-  transition: opacity 0.3s ease;
+  transition: color 0.3s ease;
 }
 
-.nav a:hover {
-  opacity: 0.8;
+.nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.35rem;
+  height: 2px;
+  background: #8cecff;
+  border-radius: 999px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  color: #8cecff;
+  outline: none;
+}
+
+.nav a:hover::after,
+.nav a:focus-visible::after {
+  transform: scaleX(1);
 }
 
 @media (max-width: 768px) {

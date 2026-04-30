@@ -1,19 +1,39 @@
 import './Hero.css'
 import profileImage from '../assets/github-profile.png'
+import reactIcon from '../assets/react.svg'
 
 function Hero() {
   return (
     <section id="home" className="hero">
       <div className="hero-grid">
         <div className="hero-copy">
-          <h1 className="hero-title">Hi, I'm <span className="highlight">Joe</span></h1>
-          <p className="hero-subtitle">Full-Stack Developer | Spring Boot & React</p>
+          <h1 className="hero-title">
+            I'm <span className="highlight">Joe</span>.
+            <span className="hero-title-line">I build full-stack web apps.</span>
+          </h1>
+          <p className="hero-subtitle">
+            Full-Stack Developer |{' '}
+            <span className="hero-stack">
+              <svg className="spring-mark" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19.3 3.7c-4.9.2-8.6 1.7-11.1 4.3-2.3 2.4-3.1 5.4-2.4 8.3L3.3 19a.9.9 0 0 0 1.3 1.2l2.5-2.6c2.8 1.1 6.1.4 8.7-2.1 2.7-2.6 4.1-6.4 4.3-11.2 0-.4-.3-.7-.8-.6Zm-4.9 10.5c-1.8 1.7-4.1 2.3-6.1 1.7 2.2-2.1 4.7-4 7.6-5.6-2.4.5-5.3 2-8.3 4.6-.2-1.9.5-3.8 2-5.3 1.8-1.9 4.6-3.1 8.5-3.5-.5 3.7-1.7 6.4-3.7 8.1Z" />
+              </svg>
+              Spring Boot & React
+              <img src={reactIcon} alt="" className="react-mark" aria-hidden="true" />
+            </span>
+          </p>
           <p className="hero-description">
-            I build practical, user-focused web applications with reliable backends,
-            clean interfaces, and a focus on delivering real customer value.
+            I deliver practical, user-focused web applications with reliable backends,
+            clean user interfaces, and software that creates real customer value.
           </p>
           <div className="hero-actions">
-            <a href="#contact" className="cta-button">Get In Touch</a>
+            <a
+              href="/SoftwareEngResume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-button"
+            >
+              Download CV
+            </a>
 
             <div className="hero-socials" aria-label="Quick contact links">
               <a
@@ -24,17 +44,6 @@ function Hero() {
               >
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z" />
-                </svg>
-              </a>
-
-              <a
-                href="tel:+447543802263"
-                className="hero-social-link"
-                aria-label="Call Joe"
-                title="Call Joe"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.24 11.36 11.36 0 0 0 3.56.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.49a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.56 1 1 0 0 1-.24 1.11l-2.2 2.12Z" />
                 </svg>
               </a>
 
