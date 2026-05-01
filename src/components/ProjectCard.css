@@ -2,14 +2,18 @@
   background: white;
   border-radius: 8px;
   padding: clamp(1.2rem, 2vw, 1.5rem);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(10, 15, 44, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 1px solid rgba(140, 236, 255, 0.18);
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-color: rgba(140, 236, 255, 0.52);
+  box-shadow:
+    0 18px 42px rgba(10, 15, 44, 0.14),
+    0 0 24px rgba(140, 236, 255, 0.2),
+    0 0 46px rgba(138, 255, 193, 0.12);
 }
 
 .project-header {
@@ -38,12 +42,19 @@
 
 .tech-badge {
   display: inline-block;
-  background: #f0f0f0;
-  color: #667eea;
+  background:
+    linear-gradient(135deg, rgba(10, 15, 44, 0.96) 0%, rgba(14, 33, 72, 0.96) 100%),
+    linear-gradient(90deg, rgba(140, 236, 255, 0.2), rgba(138, 255, 193, 0.14));
+  color: #8cecff;
   padding: 0.3rem clamp(0.65rem, 1vw, 0.8rem);
+  border: 1px solid rgba(140, 236, 255, 0.28);
   border-radius: 20px;
   font-size: 0.85rem;
-  font-weight: 500;
+  font-weight: 700;
+  text-shadow:
+    0 0 8px rgba(140, 236, 255, 0.5),
+    0 0 18px rgba(0, 200, 255, 0.2);
+  box-shadow: 0 0 12px rgba(140, 236, 255, 0.1);
 }
 
 .project-link {

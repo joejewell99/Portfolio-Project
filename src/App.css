@@ -39,7 +39,7 @@ body {
   width: 100%;
 }
 
-.portfolio {
+.projects {
   border-top: 1px solid rgba(140, 236, 255, 0.18);
 }
 
@@ -61,7 +61,7 @@ body {
 
 .about .section-header,
 .experience .section-header,
-.portfolio .section-header,
+.projects .section-header,
 .contact .section-header {
   position: relative;
   padding-bottom: 1.2rem;
@@ -70,7 +70,7 @@ body {
 
 .about .section-header::after,
 .experience .section-header::after,
-.portfolio .section-header::after,
+.projects .section-header::after,
 .contact .section-header::after {
   content: '';
   position: absolute;
