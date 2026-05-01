@@ -28,6 +28,7 @@ function Header() {
           <ul>
             <li><a href="#home" onClick={handleHomeClick}>Home</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="/SoftwareEngResume.pdf" target="_blank" rel="noopener noreferrer">CV</a></li>
             <li><a href="#contact">Contact</a></li>
