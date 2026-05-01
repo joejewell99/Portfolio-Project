@@ -1,7 +1,7 @@
-import './Portfolio.css'
+import './Projects.css'
 import ProjectCard from './ProjectCard'
 
-function Portfolio() {
+function Projects() {
   const projects = [
     {
       title: 'Portfolio Website',
@@ -36,7 +36,7 @@ function Portfolio() {
   ]
 
   return (
-    <section id="portfolio" className="portfolio">
+    <section id="projects" className="projects">
       <div className="container">
         <div className="section-header">
           <h2>Featured Projects</h2>
@@ -58,4 +58,4 @@ function Portfolio() {
   )
 }
 
-export default Portfolio
+export default Projects

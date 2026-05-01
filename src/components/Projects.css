@@ -1,4 +1,4 @@
-.portfolio {
+.projects {
   padding: 4rem 2rem;
   background: #f9f9f9;
 }
@@ -32,7 +32,7 @@
 }
 
 @media (max-width: 768px) {
-  .portfolio {
+  .projects {
     padding: 2rem 1rem;
   }
 

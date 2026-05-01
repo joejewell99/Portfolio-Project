@@ -140,7 +140,10 @@
   font-weight: 600;
   margin: 0.5rem 0 1.5rem 0;
   opacity: 1;
-  text-shadow: 0 0 22px rgba(0, 200, 255, 0.18);
+  text-shadow:
+    0 0 10px rgba(140, 236, 255, 0.62),
+    0 0 24px rgba(0, 200, 255, 0.34),
+    0 0 42px rgba(0, 255, 200, 0.16);
   animation: slideUp 0.8s ease-out 0.2s both;
   white-space: nowrap;
 }
