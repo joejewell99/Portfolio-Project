@@ -186,7 +186,7 @@
 }
 
 .send-button {
-  justify-self: end;
+  justify-self: center;
   padding: 0.95rem 1.5rem;
   background: #8cecff;
   color: #071226;
