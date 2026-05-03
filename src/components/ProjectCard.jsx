@@ -1,8 +1,15 @@
 import './ProjectCard.css'
 
-function ProjectCard({ title, description, technologies, link }) {
+function ProjectCard({ title, description, technologies, image, link }) {
   return (
     <div className="project-card">
+      {image && (
+        <img
+          src={image}
+          alt={`${title} placeholder`}
+          className="project-image"
+        />
+      )}
       <div className="project-header">
         <h3>{title}</h3>
       </div>
@@ -14,7 +21,7 @@ function ProjectCard({ title, description, technologies, link }) {
       </div>
       {link && (
         <a href={link} target="_blank" rel="noopener noreferrer" className="project-link">
-          View Project →
+          View Project &rarr;
         </a>
       )}
     </div>
