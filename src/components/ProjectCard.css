@@ -16,15 +16,79 @@
     0 0 46px rgba(138, 255, 193, 0.12);
 }
 
-.project-image {
-  display: block;
+.project-image-preview {
+  position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
-  object-fit: cover;
   border-radius: 6px;
   margin-bottom: 1rem;
   background: #e9eef5;
   border: 1px solid rgba(10, 15, 44, 0.08);
+  overflow: hidden;
+}
+
+.project-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.55s ease, transform 3.6s ease;
+}
+
+.featured-badge {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0.3rem 0.65rem;
+  background:
+    linear-gradient(135deg, rgba(10, 15, 44, 0.9), rgba(14, 33, 72, 0.88)) padding-box,
+    linear-gradient(135deg, #8cecff, #35d6ff, #8affc1) border-box;
+  color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-shadow: 0 0 10px rgba(140, 236, 255, 0.55);
+  box-shadow:
+    0 0 16px rgba(140, 236, 255, 0.24),
+    0 8px 18px rgba(10, 15, 44, 0.22);
+}
+
+.project-image:first-of-type {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.project-image:nth-of-type(2) {
+  object-position: 45% 50%;
+}
+
+.project-image:nth-of-type(3) {
+  object-position: 60% 50%;
+}
+
+.project-card:hover .project-image:first-of-type {
+  opacity: 0;
+  transform: scale(1.08) translateX(-1.5%);
+}
+
+.project-card:hover .project-image:nth-of-type(2) {
+  animation: projectImageFade 5.2s ease-in-out infinite;
+  transform: scale(1.1) translateX(1.5%);
+}
+
+.project-card:hover .project-image:nth-of-type(3) {
+  animation: projectImageFade 5.2s ease-in-out 2.6s infinite;
+  transform: scale(1.1) translateX(-1.5%);
 }
 
 .project-header {
@@ -33,7 +97,7 @@
 
 .project-header h3 {
   margin: 0;
-  color: #333;
+  color: #667eea;
   font-size: clamp(1.15rem, 1.5vw, 1.3rem);
 }
 
@@ -68,14 +132,112 @@
   box-shadow: 0 0 12px rgba(140, 236, 255, 0.1);
 }
 
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
 .project-link {
-  display: inline-block;
-  color: #667eea;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0.5rem 0.85rem;
+  background: transparent;
+  color: #42527a;
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s ease;
+  border: 1px solid rgba(66, 82, 122, 0.16);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+}
+
+.project-link::after {
+  content: '';
+  position: absolute;
+  left: 0.65rem;
+  right: 0.65rem;
+  bottom: 0.38rem;
+  height: 2px;
+  background: #5d7eea;
+  border-radius: 999px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.project-link-primary {
+  color: #425fd1;
+}
+
+.project-link-secondary {
+  color: #5f6b84;
+  font-size: 0.94rem;
+  background: transparent;
 }
 
 .project-link:hover {
-  color: #764ba2;
+  background: rgba(93, 126, 234, 0.06);
+  color: #244aa8;
+  border-color: rgba(93, 126, 234, 0.24);
+}
+
+.project-link:hover::after {
+  transform: scaleX(1);
+}
+
+.project-link-primary:hover {
+  color: #244aa8;
+}
+
+.project-link-disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.project-link-disabled:hover {
+  background: transparent;
+  color: #425fd1;
+  border-color: rgba(66, 82, 122, 0.16);
+}
+
+.project-link-disabled:hover::after {
+  transform: scaleX(0);
+}
+
+.project-link-secondary:hover {
+  color: #244aa8;
+}
+
+@keyframes projectImageFade {
+  0%,
+  45%,
+  100% {
+    opacity: 0;
+  }
+
+  12%,
+  35% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-image {
+    transition: none;
+  }
+
+  .project-card:hover .project-image:nth-of-type(2),
+  .project-card:hover .project-image:nth-of-type(3) {
+    animation: none;
+  }
+
+  .project-card:hover .project-image:first-of-type {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
