@@ -67,7 +67,7 @@ function Contact() {
         subject: '',
         message: ''
       })
-    } catch (error) {
+    } catch {
       setStatus({
         type: 'error',
         message: 'Something went wrong sending the message. Please try again or email me directly.'
