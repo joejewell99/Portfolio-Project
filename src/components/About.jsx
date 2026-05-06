@@ -53,13 +53,16 @@ function About() {
               <span className="focus-kicker">Current focus</span>
               <h3>React + Spring Boot web apps</h3>
               <p>
-                I am most interested in building complete web applications, from
-                clean interfaces to reliable backend services.
+                I am focused on building full-stack web apps with React, Spring
+                Boot, and PostgreSQL, and taking them through to deployment using AWS.
               </p>
               <div className="focus-list">
-                <span>Open to frontend</span>
-                <span>Open to backend</span>
-                <span>Open to full-stack</span>
+                <span>React</span>
+                <span>Spring Boot</span>
+                <span>Full-stack web apps</span>
+                <span>User experience</span>
+                <span>AWS deployment</span>
+                <span>Practical experience</span>
               </div>
             </div>
 

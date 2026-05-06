@@ -186,6 +186,35 @@
   box-shadow: 0 0 12px rgba(140, 236, 255, 0.1);
 }
 
+.timeline-action {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: 1rem;
+  color: #147a9b;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.timeline-action::after {
+  content: '->';
+  margin-left: 0.45rem;
+  transition: transform 0.2s ease;
+}
+
+.timeline-action:hover,
+.timeline-action:focus-visible {
+  color: #0f607a;
+  transform: translateX(2px);
+}
+
+.timeline-action:hover::after,
+.timeline-action:focus-visible::after {
+  transform: translateX(3px);
+}
+
 @media (max-width: 768px) {
   .experience {
     padding: 2rem 1rem;
