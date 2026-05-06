@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import './ProjectCard.css'
 
 function ProjectCard({
@@ -6,11 +7,35 @@ function ProjectCard({
   technologies,
   featured = false,
   images = [],
+  imageFit = 'cover',
   projectLink,
   codeLink
 }) {
+  const [activeImageIndex, setActiveImageIndex] = useState(0)
+  const [isCardHovered, setIsCardHovered] = useState(false)
   const isProjectLinkExternal = projectLink?.startsWith('http')
   const isProjectLinkInternal = projectLink?.startsWith('#')
+
+  useEffect(() => {
+    if (!isCardHovered || images.length < 2) {
+      return undefined
+    }
+
+    const intervalId = window.setInterval(() => {
+      setActiveImageIndex((currentIndex) => (currentIndex + 1) % images.length)
+    }, 2000)
+
+    return () => window.clearInterval(intervalId)
+  }, [images.length, isCardHovered])
+
+  const handleCardMouseEnter = () => {
+    setIsCardHovered(true)
+  }
+
+  const handleCardMouseLeave = () => {
+    setIsCardHovered(false)
+    setActiveImageIndex(0)
+  }
 
   const handleProjectLinkClick = (event) => {
     if (!isProjectLinkInternal) {
@@ -44,19 +69,41 @@ function ProjectCard({
   }
 
   return (
-    <div className="project-card">
+    <div
+      className="project-card"
+      onMouseEnter={handleCardMouseEnter}
+      onMouseLeave={handleCardMouseLeave}
+    >
       {images.length > 0 && (
-        <div className="project-image-preview" aria-label={`${title} image preview`}>
+        <div
+          className="project-image-preview"
+          data-image-fit={imageFit}
+          aria-label={`${title} image preview`}
+        >
           {featured && <span className="featured-badge">Featured</span>}
           {images.map((image, idx) => (
             <img
               key={image}
               src={image}
-              alt={idx === 0 ? `${title} placeholder` : ''}
-              className="project-image"
+              alt={idx === 0 ? `${title} screenshot` : ''}
+              className={`project-image ${idx === activeImageIndex ? 'project-image-active' : ''}`}
               aria-hidden={idx === 0 ? undefined : 'true'}
             />
           ))}
+          {images.length > 1 && (
+            <div className="project-image-dots">
+              {images.map((image, idx) => (
+                <button
+                  key={`${image}-dot`}
+                  type="button"
+                  className={`project-image-dot ${idx === activeImageIndex ? 'project-image-dot-active' : ''}`}
+                  aria-label={`Show ${title} screenshot ${idx + 1}`}
+                  aria-pressed={idx === activeImageIndex}
+                  onClick={() => setActiveImageIndex(idx)}
+                />
+              ))}
+            </div>
+          )}
         </div>
       )}
       <div className="project-header">

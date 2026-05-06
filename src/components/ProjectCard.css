@@ -27,6 +27,10 @@
   overflow: hidden;
 }
 
+.project-image-preview[data-image-fit='contain'] {
+  background: #151515;
+}
+
 .project-image {
   position: absolute;
   inset: 0;
@@ -37,6 +41,41 @@
   opacity: 0;
   transform: scale(1.04);
   transition: opacity 0.55s ease, transform 3.6s ease;
+}
+
+.project-image-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.project-image-preview[data-image-fit='contain'] .project-image {
+  object-fit: contain;
+}
+
+.project-image-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 0.7rem;
+  z-index: 3;
+  display: flex;
+  gap: 0.35rem;
+  transform: translateX(-50%);
+}
+
+.project-image-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  border-radius: 50%;
+  background: rgba(10, 15, 44, 0.38);
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(10, 15, 44, 0.35);
+}
+
+.project-image-dot-active {
+  background: #8cecff;
+  border-color: #8cecff;
 }
 
 .featured-badge {
@@ -63,32 +102,12 @@
     0 8px 18px rgba(10, 15, 44, 0.22);
 }
 
-.project-image:first-of-type {
-  opacity: 1;
-  transform: scale(1);
-}
-
 .project-image:nth-of-type(2) {
   object-position: 45% 50%;
 }
 
 .project-image:nth-of-type(3) {
   object-position: 60% 50%;
-}
-
-.project-card:hover .project-image:first-of-type {
-  opacity: 0;
-  transform: scale(1.08) translateX(-1.5%);
-}
-
-.project-card:hover .project-image:nth-of-type(2) {
-  animation: projectImageFade 5.2s ease-in-out infinite;
-  transform: scale(1.1) translateX(1.5%);
-}
-
-.project-card:hover .project-image:nth-of-type(3) {
-  animation: projectImageFade 5.2s ease-in-out 2.6s infinite;
-  transform: scale(1.1) translateX(-1.5%);
 }
 
 .project-header {
@@ -213,31 +232,8 @@
   color: #244aa8;
 }
 
-@keyframes projectImageFade {
-  0%,
-  45%,
-  100% {
-    opacity: 0;
-  }
-
-  12%,
-  35% {
-    opacity: 1;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .project-image {
     transition: none;
-  }
-
-  .project-card:hover .project-image:nth-of-type(2),
-  .project-card:hover .project-image:nth-of-type(3) {
-    animation: none;
-  }
-
-  .project-card:hover .project-image:first-of-type {
-    opacity: 1;
-    transform: scale(1);
   }
 }
