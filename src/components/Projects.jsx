@@ -7,10 +7,14 @@ function Projects() {
       title: 'Portfolio Website',
       description: 'A responsive personal portfolio built with Vite and React to present my projects, skills, and contact details.',
       technologies: ['React', 'Vite', 'CSS', 'JavaScript', 'EmailJS', 'AWS'],
+      featured: true,
+      imageFit: 'contain',
       images: [
-        'https://picsum.photos/seed/portfolio-website-1/800/500',
-        'https://picsum.photos/seed/portfolio-website-2/800/500',
-        'https://picsum.photos/seed/portfolio-website-3/800/500'
+        '/project-images/portfolio-website/home-page.png',
+        '/project-images/portfolio-website/about-page.png',
+        '/project-images/portfolio-website/experience-page.png',
+        '/project-images/portfolio-website/projects-page.png',
+        '/project-images/portfolio-website/contact-page.png'
       ],
       projectLink: '#home',
       codeLink: 'https://github.com/joejewell99/Portfolio-Project'
@@ -20,10 +24,14 @@ function Projects() {
       description: 'A JavaFX analytics dashboard that processes ad auction CSV data into metrics and graphs for data analysis.',
       technologies: ['Java', 'JavaFX', 'Apache Maven', 'CSV Processing'],
       featured: true,
+      imageFit: 'contain',
       images: [
-        'https://picsum.photos/seed/ad-auction-dashboard-1/800/500',
-        'https://picsum.photos/seed/ad-auction-dashboard-2/800/500',
-        'https://picsum.photos/seed/ad-auction-dashboard-3/800/500'
+        '/project-images/ad-auction-dashboard/ChartSectionHelp.jpg',
+        '/project-images/ad-auction-dashboard/ClickHistogramHelp.jpg',
+        '/project-images/ad-auction-dashboard/CompareMetricsHelp.jpg',
+        '/project-images/ad-auction-dashboard/EditChartPageHelp.jpg',
+        '/project-images/ad-auction-dashboard/LoginPageHelp.jpg',
+        '/project-images/ad-auction-dashboard/BasicMetricsHelp.jpg'
       ],
       codeLink: 'https://github.com/joejewell99/Ad-Auction-Dashboard'
     },
@@ -31,34 +39,29 @@ function Projects() {
       title: 'TCP Network Storage System',
       description: 'A coursework project exploring networked storage using TCP connections, with a Java backend and browser-based interface.',
       technologies: ['Java', 'TCP', 'HTML', 'JavaScript', 'CSS'],
-      featured: true,
+      imageFit: 'contain',
       images: [
-        'https://picsum.photos/seed/tcp-network-storage-1/800/500',
-        'https://picsum.photos/seed/tcp-network-storage-2/800/500',
-        'https://picsum.photos/seed/tcp-network-storage-3/800/500'
+        '/project-images/tcp-network-storage-system/controller-run-command.png',
+        '/project-images/tcp-network-storage-system/dstore-command.png',
+        '/project-images/tcp-network-storage-system/populate-files-command.png',
+        '/project-images/tcp-network-storage-system/file-spread.png',
+        '/project-images/tcp-network-storage-system/rebalancing.png',
+        '/project-images/tcp-network-storage-system/storage-crash-cleanup.png'
       ],
       codeLink: 'https://github.com/joejewell99/TCPNetworkStorageSystem'
-    },
-    {
-      title: 'AI Daily Planner',
-      description: 'A Python daily planner that uses AI scheduling logic to help organise tasks from a to-do list into a practical day plan.',
-      technologies: ['Python', 'AI Scheduling', 'Data Handling'],
-      images: [
-        'https://picsum.photos/seed/ai-daily-planner-1/800/500',
-        'https://picsum.photos/seed/ai-daily-planner-2/800/500',
-        'https://picsum.photos/seed/ai-daily-planner-3/800/500'
-      ],
-      codeLink: 'https://github.com/joejewell99/Ai-Daily-Planner'
     },
     {
       title: 'JavaFX Tetrecs Game',
       description: 'A JavaFX Tetrecs game inspired by Tetris, built for a university project with custom game logic and styling.',
       technologies: ['Java', 'JavaFX', 'CSS', 'Game Logic'],
       featured: true,
+      imageFit: 'contain',
       images: [
-        'https://picsum.photos/seed/javafx-tetrecs-game-1/800/500',
-        'https://picsum.photos/seed/javafx-tetrecs-game-2/800/500',
-        'https://picsum.photos/seed/javafx-tetrecs-game-3/800/500'
+        '/project-images/javafx-tetrecs-game/home-page.png',
+        '/project-images/javafx-tetrecs-game/game-Page.png',
+        '/project-images/javafx-tetrecs-game/game-play-page.png',
+        '/project-images/javafx-tetrecs-game/how-to-play-page.png',
+        '/project-images/javafx-tetrecs-game/local-score-page.png'
       ],
       codeLink: 'https://github.com/joejewell99/JavaFX-tetrecs-game'
     }
@@ -90,6 +93,7 @@ function Projects() {
               technologies={project.technologies}
               featured={project.featured}
               images={project.images}
+              imageFit={project.imageFit}
               projectLink={project.projectLink}
               codeLink={project.codeLink}
             />
