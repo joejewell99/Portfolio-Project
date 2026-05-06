@@ -1,6 +1,7 @@
 import './Hero.css'
 import profileImage from '../assets/github-profile.png'
 import reactIcon from '../assets/react.svg'
+import AnimatedText from './AnimatedText'
 
 function Hero() {
   return (
@@ -8,7 +9,7 @@ function Hero() {
       <div className="hero-grid">
         <div className="hero-copy">
           <h1 className="hero-title">
-            I'm <span className="highlight">Joe</span>.
+            I'm <AnimatedText text="Joe" className="highlight hero-name" />.
             <span className="hero-title-line">I build full-stack web apps.</span>
           </h1>
           <p className="hero-subtitle">

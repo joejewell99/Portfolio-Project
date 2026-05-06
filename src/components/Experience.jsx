@@ -1,4 +1,5 @@
 import './Experience.css'
+import AnimatedSectionTitle from './AnimatedSectionTitle'
 
 const timelineItems = [
   {
@@ -53,7 +54,7 @@ function Experience() {
     <section id="experience" className="experience">
       <div className="container">
         <div className="section-header">
-          <h2>Education & Direction</h2>
+          <AnimatedSectionTitle text="Education & Direction" />
           <p>My academic background, current focus, and next steps</p>
         </div>
 

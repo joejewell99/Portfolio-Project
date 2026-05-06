@@ -1,4 +1,5 @@
 import './About.css'
+import AnimatedSectionTitle from './AnimatedSectionTitle'
 
 function About() {
   const skillGroups = [
@@ -24,7 +25,7 @@ function About() {
     <section id="about" className="about">
       <div className="container">
         <div className="section-header">
-          <h2>About Me</h2>
+          <AnimatedSectionTitle text="About Me" />
         </div>
         <div className="about-content">
           <div className="about-copy">

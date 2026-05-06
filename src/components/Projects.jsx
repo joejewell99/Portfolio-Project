@@ -1,5 +1,6 @@
 import './Projects.css'
 import ProjectCard from './ProjectCard'
+import AnimatedSectionTitle from './AnimatedSectionTitle'
 
 function Projects() {
   const projects = [
@@ -81,7 +82,7 @@ function Projects() {
     <section id="projects" className="projects">
       <div className="container">
         <div className="section-header">
-          <h2>Projects</h2>
+          <AnimatedSectionTitle text="Projects" />
           <p>Here are some of my recent projects</p>
         </div>
         <div className="projects-grid">
