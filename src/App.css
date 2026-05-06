@@ -12,10 +12,16 @@ html {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  --contact-page-background:
+    linear-gradient(90deg, rgba(140, 236, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(140, 236, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(135deg, #0a0f2c 0%, #0e2148 52%, #071226 100%);
+  --contact-page-background-size: 34px 34px, 34px 34px, 100% 100%;
 
   color-scheme: light dark;
   color: rgba(0, 0, 0, 0.87);
-  background-color: #242424;
+  background: var(--contact-page-background);
+  background-size: var(--contact-page-background-size);
 }
 
 body {
@@ -23,6 +29,9 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
+  background: var(--contact-page-background);
+  background-size: var(--contact-page-background-size);
+  background-attachment: fixed;
 }
 
 #root {
@@ -30,6 +39,9 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: var(--contact-page-background);
+  background-size: var(--contact-page-background-size);
+  background-attachment: fixed;
 }
 
 .container {
@@ -45,6 +57,103 @@ body {
 
 .contact {
   border-top: 1px solid rgba(140, 236, 255, 0.24);
+}
+
+.about,
+.experience,
+.projects {
+  position: relative;
+  background: transparent;
+  border-top: 1px solid rgba(140, 236, 255, 0.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 -18px 48px rgba(0, 0, 0, 0.16),
+    0 -1px 24px rgba(140, 236, 255, 0.18),
+    0 -10px 34px rgba(138, 255, 193, 0.08);
+}
+
+
+.about .section-header h2,
+.experience .section-header h2,
+.projects .section-header h2 {
+  color: #f8fbff;
+}
+
+.about .section-header p,
+.experience .section-header p,
+.projects .section-header p {
+  color: #8cecff;
+}
+
+.about-copy p {
+  color: #d8e7ef;
+}
+
+.skills h3,
+.skill-group h4 {
+  color: #f8fbff;
+}
+
+.contact {
+  position: relative;
+  margin-top: 0;
+  background:
+    linear-gradient(180deg, rgba(5, 11, 34, 0.82) 0%, rgba(7, 18, 38, 0.96) 100%),
+    var(--contact-page-background);
+  background-size: 100% 100%, var(--contact-page-background-size);
+  border-top: 1px solid rgba(140, 236, 255, 0.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 -18px 48px rgba(0, 0, 0, 0.16),
+    0 -1px 24px rgba(140, 236, 255, 0.18),
+    0 -10px 34px rgba(138, 255, 193, 0.08);
+}
+
+.about::after,
+.experience::after,
+.projects::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(900px, calc(100% - 2rem));
+  height: 5px;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(138, 255, 193, 0.08) 10%, rgba(138, 255, 193, 0.2) 24%, rgba(140, 236, 255, 0.86) 42%, rgba(138, 255, 193, 0.92) 55%, rgba(138, 255, 193, 0.22) 76%, rgba(138, 255, 193, 0.08) 90%, transparent 100%),
+    radial-gradient(ellipse at 56% 50%, rgba(138, 255, 193, 0.3) 0%, rgba(138, 255, 193, 0.16) 42%, rgba(140, 236, 255, 0.08) 62%, transparent 84%);
+  border-radius: 999px;
+  transform: translateX(-50%);
+  z-index: 2;
+  box-shadow:
+    0 0 14px rgba(140, 236, 255, 0.4),
+    0 0 34px rgba(138, 255, 193, 0.3),
+    0 0 72px rgba(138, 255, 193, 0.16),
+    0 0 110px rgba(138, 255, 193, 0.08),
+    0 10px 26px rgba(138, 255, 193, 0.16),
+    0 18px 42px rgba(140, 236, 255, 0.1);
+}
+
+.contact::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(900px, calc(100% - 2rem));
+  height: 5px;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(138, 255, 193, 0.08) 10%, rgba(138, 255, 193, 0.2) 24%, rgba(140, 236, 255, 0.86) 42%, rgba(138, 255, 193, 0.92) 55%, rgba(138, 255, 193, 0.22) 76%, rgba(138, 255, 193, 0.08) 90%, transparent 100%),
+    radial-gradient(ellipse at 56% 50%, rgba(138, 255, 193, 0.3) 0%, rgba(138, 255, 193, 0.16) 42%, rgba(140, 236, 255, 0.08) 62%, transparent 84%);
+  border-radius: 999px;
+  transform: translateX(-50%);
+  z-index: 2;
+  box-shadow:
+    0 0 14px rgba(140, 236, 255, 0.4),
+    0 0 34px rgba(138, 255, 193, 0.3),
+    0 0 72px rgba(138, 255, 193, 0.16),
+    0 0 110px rgba(138, 255, 193, 0.08),
+    0 10px 26px rgba(138, 255, 193, 0.18),
+    0 18px 46px rgba(140, 236, 255, 0.12),
+    0 28px 72px rgba(138, 255, 193, 0.08);
 }
 
 .section-highlight {
