@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
 import './Contact.css'
+import AnimatedSectionTitle from './AnimatedSectionTitle'
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -81,7 +82,7 @@ function Contact() {
     <section id="contact" className="contact">
       <div className="container">
         <div className="section-header">
-          <h2>Get In Touch</h2>
+          <AnimatedSectionTitle text="Get In Touch" />
           <p>Let's build something amazing together</p>
         </div>
 

@@ -79,6 +79,50 @@ body {
   color: #f8fbff;
 }
 
+.animated-text {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  line-height: 1.1;
+  letter-spacing: 0;
+  cursor: default;
+}
+
+.animated-section-title {
+  justify-content: center;
+}
+
+.animated-text-word {
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.animated-text-space {
+  display: inline-block;
+  width: 0.28em;
+}
+
+.animated-text-letter {
+  display: inline-block;
+  transform-origin: center 72%;
+  transition:
+    color 0.18s ease,
+    filter 0.18s ease,
+    text-shadow 0.18s ease;
+  will-change: transform;
+}
+
+.animated-text-letter:hover {
+  color: #8cecff;
+  -webkit-text-fill-color: currentColor;
+  animation: titleLetterSquish 0.38s cubic-bezier(0.25, 1.45, 0.45, 1);
+  filter: drop-shadow(0 0 9px rgba(140, 236, 255, 0.76));
+  text-shadow:
+    0 0 8px rgba(140, 236, 255, 0.9),
+    0 0 18px rgba(53, 214, 255, 0.58),
+    0 0 30px rgba(138, 255, 193, 0.22);
+}
+
 .about .section-header p,
 .experience .section-header p,
 .projects .section-header p {
@@ -211,6 +255,28 @@ body {
       inset 0 0 0 2px rgba(140, 236, 255, 0.54),
       inset 0 0 42px rgba(140, 236, 255, 0.12),
       0 0 36px rgba(140, 236, 255, 0.16);
+  }
+}
+
+@keyframes titleLetterSquish {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  35% {
+    transform: translateY(2px) scale(1.16, 0.82);
+  }
+
+  68% {
+    transform: translateY(-2px) scale(0.92, 1.14);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-text-letter:hover {
+    animation: none;
+    transform: translateY(-1px);
   }
 }
 
