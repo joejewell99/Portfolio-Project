@@ -49,7 +49,7 @@ function Hero() {
               </a>
 
               <a
-                href="https://linkedin.com/in/joejewell99"
+                href="https://www.linkedin.com/in/joseph-jewell/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hero-social-link"

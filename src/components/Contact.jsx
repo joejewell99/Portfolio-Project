@@ -159,7 +159,7 @@ function Contact() {
 
           <div className="contact-links" aria-label="Other ways to contact me">
             <a
-              href="https://linkedin.com/in/joejewell99"
+              href="https://www.linkedin.com/in/joseph-jewell/"
               target="_blank"
               rel="noopener noreferrer"
               className="contact-link linkedin"

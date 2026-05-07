@@ -6,6 +6,8 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-color: rgba(140, 236, 255, 0.82) rgba(7, 18, 38, 0.92);
+  scrollbar-width: thin;
 }
 
 :root {
@@ -32,6 +34,31 @@ body {
   background: var(--contact-page-background);
   background-size: var(--contact-page-background-size);
   background-attachment: fixed;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background:
+    linear-gradient(180deg, rgba(10, 15, 44, 0.96), rgba(7, 18, 38, 0.98));
+  border-left: 1px solid rgba(140, 236, 255, 0.16);
+}
+
+::-webkit-scrollbar-thumb {
+  background:
+    linear-gradient(180deg, #8cecff 0%, #8affc1 52%, #35d6ff 100%);
+  border: 3px solid #8affc1;
+  border-radius: 999px;
+  box-shadow:
+    0 0 12px rgba(140, 236, 255, 0.42),
+    0 0 22px rgba(138, 255, 193, 0.22);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(180deg, #d7fbff 0%, #a8ffd1 48%, #65e2ff 100%);
 }
 
 #root {
