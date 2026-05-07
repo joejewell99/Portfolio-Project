@@ -1,6 +1,9 @@
+import { useEffect, useState } from 'react'
 import './ProjectDetailPage.css'
 
 function ProjectDetailPage({ project, onBack }) {
+  const [activeImageIndex, setActiveImageIndex] = useState(null)
+
   const {
     title,
     description,
@@ -26,6 +29,64 @@ function ProjectDetailPage({ project, onBack }) {
 
   const isExternalProjectLink = projectLink?.startsWith('http')
   const hasProjectLink = projectLink && !projectLink.startsWith('#')
+  const hasActiveImage = activeImageIndex !== null
+  const activeImage = hasActiveImage ? images[activeImageIndex] : null
+
+  const openImageViewer = (imageIndex) => {
+    setActiveImageIndex(imageIndex)
+  }
+
+  const closeImageViewer = () => {
+    setActiveImageIndex(null)
+  }
+
+  const showPreviousImage = () => {
+    setActiveImageIndex((currentIndex) => {
+      if (currentIndex === null) {
+        return currentIndex
+      }
+
+      return (currentIndex - 1 + images.length) % images.length
+    })
+  }
+
+  const showNextImage = () => {
+    setActiveImageIndex((currentIndex) => {
+      if (currentIndex === null) {
+        return currentIndex
+      }
+
+      return (currentIndex + 1) % images.length
+    })
+  }
+
+  useEffect(() => {
+    if (!hasActiveImage) {
+      return undefined
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        closeImageViewer()
+      }
+
+      if (event.key === 'ArrowLeft') {
+        showPreviousImage()
+      }
+
+      if (event.key === 'ArrowRight') {
+        showNextImage()
+      }
+    }
+
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [hasActiveImage, images.length])
 
   return (
     <main className="project-detail-page">
@@ -66,9 +127,15 @@ function ProjectDetailPage({ project, onBack }) {
           </div>
 
           {images.length > 0 && (
-            <div className="project-detail-featured-image" data-image-fit={imageFit}>
+            <button
+              className="project-detail-featured-image project-detail-image-button"
+              data-image-fit={imageFit}
+              type="button"
+              onClick={() => openImageViewer(0)}
+              aria-label={`Open ${title} main screenshot`}
+            >
               <img src={images[0]} alt={`${title} main screenshot`} />
-            </div>
+            </button>
           )}
         </section>
 
@@ -115,18 +182,70 @@ function ProjectDetailPage({ project, onBack }) {
 
             <div className="project-detail-gallery-grid">
               {images.slice(1).map((image, index) => (
-                <figure
+                <button
                   className="project-detail-gallery-item"
                   data-image-fit={imageFit}
                   key={image}
+                  type="button"
+                  onClick={() => openImageViewer(index + 1)}
+                  aria-label={`Open ${title} screenshot ${index + 2}`}
                 >
                   <img src={image} alt={`${title} screenshot ${index + 2}`} />
-                </figure>
+                </button>
               ))}
             </div>
           </section>
         )}
       </div>
+
+      {hasActiveImage && (
+        <div
+          className="project-image-viewer"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${title} screenshot viewer`}
+        >
+          <button
+            className="project-image-viewer-backdrop"
+            type="button"
+            onClick={closeImageViewer}
+            aria-label="Close image viewer"
+          />
+
+          <div className="project-image-viewer-content">
+            <div className="project-image-viewer-toolbar">
+              <p>{activeImageIndex + 1} / {images.length}</p>
+              <button type="button" onClick={closeImageViewer} aria-label="Close image viewer">
+                &times;
+              </button>
+            </div>
+
+            {images.length > 1 && (
+              <button
+                className="project-image-viewer-arrow project-image-viewer-arrow-left"
+                type="button"
+                onClick={showPreviousImage}
+                aria-label="Show previous screenshot"
+              >
+                &larr;
+              </button>
+            )}
+
+            <img src={activeImage} alt={`${title} screenshot ${activeImageIndex + 1}`} />
+
+            {images.length > 1 && (
+              <button
+                className="project-image-viewer-arrow project-image-viewer-arrow-right"
+                type="button"
+                onClick={showNextImage}
+                aria-label="Show next screenshot"
+              >
+                &rarr;
+              </button>
+            )}
+          </div>
+        </div>
+      )}
     </main>
   )
 }

@@ -25,7 +25,9 @@ function Header() {
       <div className="container">
         <h1 className="logo">
           <a href="#home" onClick={handleHomeClick} className="logo-link" aria-label="Joe Jewell portfolio home">
-            <img src="/favicon.svg" alt="" className="logo-mark" aria-hidden="true" />
+            <span className="logo-mark-shell" aria-hidden="true">
+              <img src="/logo.png" alt="" className="logo-mark" />
+            </span>
             <span className="logo-text">
               <span className="logo-name">Joe.J</span>
             </span>
