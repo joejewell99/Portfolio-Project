@@ -23,7 +23,14 @@ function Header() {
   return (
     <header className={`header${isScrolled ? ' header-scrolled' : ''}`}>
       <div className="container">
-        <h1 className="logo"><a href="#home" onClick={handleHomeClick} className="logo-link">Joe's Portfolio</a></h1>
+        <h1 className="logo">
+          <a href="#home" onClick={handleHomeClick} className="logo-link" aria-label="Joe Jewell portfolio home">
+            <img src="/favicon.svg" alt="" className="logo-mark" aria-hidden="true" />
+            <span className="logo-text">
+              <span className="logo-name">Joe.J</span>
+            </span>
+          </a>
+        </h1>
         <nav className="nav">
           <ul>
             <li><a href="#home" onClick={handleHomeClick}>Home</a></li>
