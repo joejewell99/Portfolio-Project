@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './ProjectCard.css'
 
 function ProjectCard({
+  project,
   title,
   description,
   technologies,
@@ -9,7 +10,8 @@ function ProjectCard({
   images = [],
   imageFit = 'cover',
   projectLink,
-  codeLink
+  codeLink,
+  onViewProject
 }) {
   const [activeImageIndex, setActiveImageIndex] = useState(0)
   const [isCardHovered, setIsCardHovered] = useState(false)
@@ -39,6 +41,11 @@ function ProjectCard({
 
   const handleProjectLinkClick = (event) => {
     if (!isProjectLinkInternal) {
+      if (onViewProject) {
+        event.preventDefault()
+        onViewProject(project)
+      }
+
       return
     }
 
@@ -116,9 +123,9 @@ function ProjectCard({
         ))}
       </div>
       <div className="project-actions">
-        {projectLink ? (
+        {onViewProject || projectLink ? (
           <a
-            href={projectLink}
+            href={projectLink || '#'}
             target={isProjectLinkExternal ? '_blank' : undefined}
             rel={isProjectLinkExternal ? 'noopener noreferrer' : undefined}
             onClick={handleProjectLinkClick}

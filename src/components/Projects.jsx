@@ -2,7 +2,7 @@ import './Projects.css'
 import ProjectCard from './ProjectCard'
 import AnimatedSectionTitle from './AnimatedSectionTitle'
 
-function Projects() {
+function Projects({ onOpenProject }) {
   const projects = [
     {
       title: 'Portfolio Website',
@@ -89,6 +89,7 @@ function Projects() {
           {rankedProjects.map((project) => (
             <ProjectCard
               key={project.title}
+              project={project}
               title={project.title}
               description={project.description}
               technologies={project.technologies}
@@ -97,6 +98,7 @@ function Projects() {
               imageFit={project.imageFit}
               projectLink={project.projectLink}
               codeLink={project.codeLink}
+              onViewProject={onOpenProject}
             />
           ))}
         </div>
