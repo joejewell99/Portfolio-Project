@@ -1,8 +1,24 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import './Header.css'
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const headerRef = useRef(null)
+
+  useLayoutEffect(() => {
+    const header = headerRef.current
+    const root = document.documentElement
+    const updateOffset = () => {
+      root.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`)
+    }
+    updateOffset()
+    const observer = new ResizeObserver(updateOffset)
+    observer.observe(header)
+    return () => {
+      observer.disconnect()
+      root.style.removeProperty('--header-height')
+    }
+  }, [])
 
   const handleHomeClick = (event) => {
     event.preventDefault()
@@ -10,8 +26,13 @@ function Header() {
   }
 
   useEffect(() => {
+    let lastScrolled = false
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 12)
+      const nextScrolled = window.scrollY > 12
+      if (nextScrolled !== lastScrolled) {
+        lastScrolled = nextScrolled
+        setIsScrolled(nextScrolled)
+      }
     }
 
     handleScroll()
@@ -21,7 +42,7 @@ function Header() {
   }, [])
 
   return (
-    <header className={`header${isScrolled ? ' header-scrolled' : ''}`}>
+    <header ref={headerRef} className={`header${isScrolled ? ' header-scrolled' : ''}`}>
       <div className="container">
         <h1 className="logo">
           <a href="#home" onClick={handleHomeClick} className="logo-link" aria-label="Joe Jewell portfolio home">

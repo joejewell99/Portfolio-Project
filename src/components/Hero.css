@@ -49,9 +49,10 @@
 }
 
 @keyframes starGlow {
-  0% { opacity: 0.6; filter: brightness(0.9); }
-  50% { opacity: 0.85; filter: brightness(1.15); }
-  100% { opacity: 0.6; filter: brightness(0.95); }
+  /* Approximate the original brightness pulse without filtering the viewport. */
+  0% { opacity: 0.54; }
+  50% { opacity: 0.9775; }
+  100% { opacity: 0.57; }
 }
 
 @keyframes spaceDrift {
@@ -132,6 +133,9 @@
 
 .hero-name {
   vertical-align: baseline;
+  /* Each letter owns its gradient; a clipped parent paints a static copy. */
+  background: none;
+  animation: none;
 }
 
 .hero-name .animated-text-letter {
@@ -165,11 +169,20 @@
   white-space: nowrap;
 }
 
+.react-mark-rotor {
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: 1.65rem;
+  height: 1.65rem;
+  animation: reactSpin 12s linear infinite;
+  will-change: transform;
+}
+
 .react-mark {
+  display: block;
   width: 1.65rem;
   height: 1.65rem;
   filter: drop-shadow(0 0 10px rgba(97, 218, 251, 0.45));
-  animation: reactSpin 12s linear infinite;
 }
 
 .spring-mark {

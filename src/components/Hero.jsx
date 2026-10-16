@@ -1,11 +1,49 @@
+import { useEffect, useRef } from 'react'
 import './Hero.css'
 import profileImage from '../assets/github-profile.png'
 import reactIcon from '../assets/react.svg'
 import AnimatedText from './AnimatedText'
 
 function Hero() {
+  const heroRef = useRef(null)
+
+  useEffect(() => {
+    const hero = heroRef.current
+    if (!hero.getAnimations || !window.IntersectionObserver) return undefined
+
+    let isVisible = true
+    const pausedAnimations = new Set()
+    const updateAnimations = () => {
+      if (isVisible && !document.hidden) {
+        pausedAnimations.forEach((animation) => animation.play())
+        pausedAnimations.clear()
+        return
+      }
+
+      // Preserve animation progress while avoiding work outside the viewport.
+      hero.getAnimations({ subtree: true }).forEach((animation) => {
+        if (animation.effect?.getTiming().iterations === Infinity && animation.playState === 'running') {
+          animation.pause()
+          pausedAnimations.add(animation)
+        }
+      })
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting
+      updateAnimations()
+    })
+    observer.observe(hero)
+    document.addEventListener('visibilitychange', updateAnimations)
+
+    return () => {
+      observer.disconnect()
+      document.removeEventListener('visibilitychange', updateAnimations)
+      pausedAnimations.forEach((animation) => animation.play())
+    }
+  }, [])
+
   return (
-    <section id="home" className="hero">
+    <section ref={heroRef} id="home" className="hero">
       <div className="hero-grid">
         <div className="hero-copy">
           <h1 className="hero-title">
@@ -19,7 +57,9 @@ function Hero() {
                 <path d="M19.3 3.7c-4.9.2-8.6 1.7-11.1 4.3-2.3 2.4-3.1 5.4-2.4 8.3L3.3 19a.9.9 0 0 0 1.3 1.2l2.5-2.6c2.8 1.1 6.1.4 8.7-2.1 2.7-2.6 4.1-6.4 4.3-11.2 0-.4-.3-.7-.8-.6Zm-4.9 10.5c-1.8 1.7-4.1 2.3-6.1 1.7 2.2-2.1 4.7-4 7.6-5.6-2.4.5-5.3 2-8.3 4.6-.2-1.9.5-3.8 2-5.3 1.8-1.9 4.6-3.1 8.5-3.5-.5 3.7-1.7 6.4-3.7 8.1Z" />
               </svg>
               Spring Boot & React
-              <img src={reactIcon} alt="" className="react-mark" aria-hidden="true" />
+              <span className="react-mark-rotor" aria-hidden="true">
+                <img src={reactIcon} alt="" className="react-mark" decoding="async" />
+              </span>
             </span>
           </p>
           <p className="hero-description">

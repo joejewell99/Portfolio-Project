@@ -31,6 +31,9 @@ function ProjectDetailPage({ project, onBack }) {
   const hasProjectLink = projectLink && !projectLink.startsWith('#')
   const hasActiveImage = activeImageIndex !== null
   const activeImage = hasActiveImage ? images[activeImageIndex] : null
+  const galleryImages = title === 'SkillSignal'
+    ? images.map((image, imageIndex) => ({ image, imageIndex }))
+    : images.slice(1).map((image, index) => ({ image, imageIndex: index + 1 }))
 
   const openImageViewer = (imageIndex) => {
     setActiveImageIndex(imageIndex)
@@ -97,7 +100,9 @@ function ProjectDetailPage({ project, onBack }) {
 
         <section className="project-detail-hero">
           <div className="project-detail-hero-copy">
-            <p className="project-detail-kicker">Project case study</p>
+            <p className="project-detail-kicker">
+              {title === 'SkillSignal' ? 'Live full-stack SaaS website' : 'Project case study'}
+            </p>
             <h1>{title}</h1>
             <p>{description}</p>
 
@@ -109,7 +114,7 @@ function ProjectDetailPage({ project, onBack }) {
                   rel={isExternalProjectLink ? 'noopener noreferrer' : undefined}
                   className="project-detail-link project-detail-link-primary"
                 >
-                  Live Demo &rarr;
+                  {title === 'SkillSignal' ? 'Visit Live Beta' : 'Live Demo'} &rarr;
                 </a>
               )}
 
@@ -134,12 +139,12 @@ function ProjectDetailPage({ project, onBack }) {
               onClick={() => openImageViewer(0)}
               aria-label={`Open ${title} main screenshot`}
             >
-              <img src={images[0]} alt={`${title} main screenshot`} />
+              <img src={images[0]} decoding="async" alt={`${title} main screenshot`} />
             </button>
           )}
         </section>
 
-        <div className="project-detail-grid">
+        <div className={`project-detail-grid${title === 'SkillSignal' ? ' project-detail-grid-saas' : ''}`}>
           <section className="project-detail-panel project-detail-panel-large">
             <p className="project-detail-section-label">Overview</p>
             <h2>Project Summary</h2>
@@ -173,7 +178,7 @@ function ProjectDetailPage({ project, onBack }) {
           </section>
         </div>
 
-        {images.length > 1 && (
+        {galleryImages.length > 0 && (
           <section className="project-detail-gallery">
             <div className="project-detail-gallery-header">
               <p className="project-detail-section-label">Gallery</p>
@@ -181,16 +186,16 @@ function ProjectDetailPage({ project, onBack }) {
             </div>
 
             <div className="project-detail-gallery-grid">
-              {images.slice(1).map((image, index) => (
+              {galleryImages.map(({ image, imageIndex }) => (
                 <button
                   className="project-detail-gallery-item"
                   data-image-fit={imageFit}
                   key={image}
                   type="button"
-                  onClick={() => openImageViewer(index + 1)}
-                  aria-label={`Open ${title} screenshot ${index + 2}`}
+                  onClick={() => openImageViewer(imageIndex)}
+                  aria-label={`Open ${title} screenshot ${imageIndex + 1}`}
                 >
-                  <img src={image} alt={`${title} screenshot ${index + 2}`} />
+                  <img src={image} loading="lazy" decoding="async" alt={`${title} screenshot ${imageIndex + 1}`} />
                 </button>
               ))}
             </div>

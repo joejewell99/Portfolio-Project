@@ -92,6 +92,8 @@ function ProjectCard({
             <img
               key={image}
               src={image}
+              loading="lazy"
+              decoding="async"
               alt={idx === 0 ? `${title} screenshot` : ''}
               className={`project-image ${idx === activeImageIndex ? 'project-image-active' : ''}`}
               aria-hidden={idx === 0 ? undefined : 'true'}

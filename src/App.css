@@ -6,6 +6,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height, 0px);
   scrollbar-color: rgba(140, 236, 255, 0.82) rgba(7, 18, 38, 0.92);
   scrollbar-width: thin;
 }

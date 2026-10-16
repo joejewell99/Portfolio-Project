@@ -5,6 +5,41 @@ import AnimatedSectionTitle from './AnimatedSectionTitle'
 function Projects({ onOpenProject }) {
   const projects = [
     {
+      title: 'SkillSignal',
+      description: 'A deployed hiring SaaS using AI to connect employers with developers through proven project work.',
+      summary: 'SkillSignal is a full-stack hiring SaaS that connects developers with employers using AI and evidence from their projects. It is aimed at students, junior developers, and people starting their careers who want to demonstrate their technical ability, alongside employers looking for developers with experience relevant to the work they need done. The website is deployed at skillsignal.co.uk and is available as a public beta.\n\nI built this project to give developers a way to bring their work together and explain the skills behind it. Users can create a profile, add their projects, upload screenshots, and include GitHub links and technical explanations of what they built. This gives employers a clearer view of their experience and the problems they have worked through, particularly when they have limited professional experience to put on a CV.\n\nThe platform works by taking a description of what an employer needs and comparing it against developer profiles and project evidence using AI-assisted matching. For example, an employer looking for help with a React dashboard and Spring Boot API can find developers who have built similar features. Results include ranked matches, relevant skills, and explanations of why each developer may be suitable. The website also features a searchable profile directory, separate developer and employer dashboards, connections, and messaging so users can follow up on a match.\n\nIn terms of development, I used React for the frontend, Java and Spring Boot for the backend, and PostgreSQL to store user accounts, profiles, projects, and messages. Spring Security provides role-based access control so users can only access the features and data they are authorised to use. Authentication uses an HttpOnly cookie with CSRF protection for requests that change data, and users can choose whether their profile is publicly visible. AI searches also have daily usage limits and a fallback if the AI service is unavailable.',
+      highlights: [
+        'AI matching that ranks developers against employer briefs and explains each match.',
+        'Developer portfolios with project screenshots, GitHub links, and technical write-ups.',
+        'Searchable developer profiles with separate dashboards for developers and employers.',
+        'Connections and direct messaging to follow up on potential matches.',
+        'Secure accounts with role-based access and profile visibility controls.'
+      ],
+      reflection: 'This project helped me bring together the frontend, backend, database, and deployment work needed for a complete web application. I developed my understanding of React, Spring Boot, and PostgreSQL by connecting features such as profile editing, project uploads, and messaging across the whole application. I also learned more about enforcing permissions on the backend and managing database changes as new features are added. Working with AI matching made me think more carefully about the evidence behind a result, how to explain it to users, and how to handle usage limits or failed requests. Taking SkillSignal through to a deployed beta also helped me understand the practical work involved in maintaining a website beyond running it locally.',
+      cardTechnologies: ['React', 'Java', 'Spring Boot', 'Spring Security', 'PostgreSQL', 'AI Matching'],
+      technologies: ['React', 'JavaScript', 'Java', 'Spring Boot', 'Spring Security', 'Spring Data JPA', 'PostgreSQL', 'Flyway', 'OpenAI API', 'WebSocket / STOMP', 'Docker', 'Nginx'],
+      featured: true,
+      priority: 1,
+      imageFit: 'contain',
+      images: [
+        '/project-images/skillsignal/heropage.png',
+        '/project-images/skillsignal/1.png',
+        '/project-images/skillsignal/2.png',
+        '/project-images/skillsignal/3.png',
+        '/project-images/skillsignal/4.png',
+        '/project-images/skillsignal/5.png',
+        '/project-images/skillsignal/Aimatchpage.png',
+        '/project-images/skillsignal/aimatchprofiles.png',
+        '/project-images/skillsignal/DevDashboard.png',
+        '/project-images/skillsignal/profilespage.png',
+        '/project-images/skillsignal/signin.png',
+        '/project-images/skillsignal/getstarted.png',
+        '/project-images/skillsignal/whyskillsignal.png'
+      ],
+      projectLink: 'https://skillsignal.co.uk',
+      codeLink: 'https://github.com/joejewell99/SkillSignal'
+    },
+    {
       title: 'Portfolio Website',
       description: 'A responsive personal portfolio built with Vite and React to present my projects, skills, and contact details.',
       summary: 'This portfolio brings my work, experience, and contact flow into one responsive React site with a consistent visual identity and project-focused browsing experience.',
@@ -106,9 +141,9 @@ function Projects({ onOpenProject }) {
       return featuredRank
     }
 
-    return firstProject.title.localeCompare(secondProject.title)
+    return (secondProject.priority || 0) - (firstProject.priority || 0)
+      || firstProject.title.localeCompare(secondProject.title)
   })
-
   return (
     <section id="projects" className="projects">
       <div className="container">
@@ -123,7 +158,7 @@ function Projects({ onOpenProject }) {
               project={project}
               title={project.title}
               description={project.description}
-              technologies={project.technologies}
+              technologies={project.cardTechnologies || project.technologies}
               featured={project.featured}
               images={project.images}
               imageFit={project.imageFit}

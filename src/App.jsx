@@ -7,6 +7,7 @@ import Projects from './components/Projects'
 import Contact from './components/Contact'
 import ProjectDetailPage from './components/ProjectDetailPage'
 import './App.css'
+import './performance.css'
 
 function App() {
   const [activeProject, setActiveProject] = useState(null)

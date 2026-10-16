@@ -249,6 +249,11 @@
   grid-row: span 2;
 }
 
+/* Let the reflection use the space below both the overview and sidebar. */
+.project-detail-grid-saas > .project-detail-panel:last-child {
+  grid-column: 1 / -1;
+}
+
 .project-detail-panel h2,
 .project-detail-gallery h2 {
   margin: 0 0 0.8rem;
