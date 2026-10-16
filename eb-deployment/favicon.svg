@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="8" x2="56" y1="6" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07072a"/>
+      <stop offset=".56" stop-color="#090f3a"/>
+      <stop offset="1" stop-color="#071226"/>
+    </linearGradient>
+    <linearGradient id="jGradient" x1="9" x2="54" y1="43" y2="19" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#18f0ff"/>
+      <stop offset=".48" stop-color="#73a7ff"/>
+      <stop offset="1" stop-color="#fb22e8"/>
+    </linearGradient>
+    <filter id="glow" x="-45%" y="-45%" width="190%" height="190%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-90%" y="-90%" width="280%" height="280%">
+      <feGaussianBlur stdDeviation="3.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <g transform="translate(-3 0)">
+    <path d="M10.5 34.8h12.6c2.7 0 4.9 2.2 4.9 4.9 0 2.2 1.8 4 4 4h5.4c4.1 0 7.4-3.3 7.4-7.4V20.2c0-7.1 5.8-12.9 12.9-12.9h4.8v17.2h-7.7v13.1c0 11.5-9.3 20.8-20.8 20.8h-5.7c-9.8 0-17.8-8-17.8-17.8v-5.8Z" fill="url(#jGradient)" filter="url(#glow)"/>
+    <path d="M12.6 35v5.2c0 8.9 7.2 16.1 16.1 16.1h5.5c8 0 14.9-5.3 17.1-12.6" fill="none" stroke="#8affc1" stroke-width="1.8" stroke-linecap="round" opacity=".36"/>
+  </g>
+</svg>
